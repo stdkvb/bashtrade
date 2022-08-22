@@ -1,0 +1,13 @@
+.wrapper80 {
+  padding-top: rem(80px);
+
+  @include tablet_small {
+    padding-top: rem(48px);
+  }
+}
+
+.wrapper-small {
+  max-width: rem(760px);
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,164 @@
+.popup {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto;
+   background: $color-white;
+   padding: calculateRem(48px) calculateRem(40px);
+   z-index: 1;
+   max-width: 570px;
+   width: fit-content;
+   height: fit-content;
+   z-index: 100;
+
+   @include tablet {
+      padding: calculateRem(28px) calculateRem(18px);
+      margin: auto;
+   }
+
+   @include mobile {
+      margin: auto 20px;
+   }
+
+   &__close {
+      position: absolute;
+      right: calculateRem(20px);
+      top: calculateRem(20px);
+      cursor: pointer;
+
+      path {
+         fill: $color-blue;
+      }
+
+      @include mobile {
+         right: calculateRem(10px);
+         top: calculateRem(10px);
+      }
+   }
+
+   &__title {
+      font-size: calculateRem(48px) !important;
+      line-height: calculateRem(60px) !important;
+      text-align: center;
+
+      @include tablet {
+         max-width: calculateRem(245px) !important;
+         font-size: calculateRem(24px) !important;
+         line-height: calculateRem(28px) !important;
+         margin: 0 auto;
+      }
+   }
+
+   &__politics {
+      margin-top: calculateRem(16px);
+      text-align: center;
+      font-size: calculateRem(14px);
+      color: $color-dark-opacity-6;
+
+      @include mobile {
+         font-size: calculateRem(9px);
+      }
+
+      a {
+         color: $color-dark-opacity-6;
+         font-size: inherit;
+         text-decoration: underline;
+
+         &:hover {
+            text-decoration: none;
+         }
+      }
+   }
+
+   &.open {
+      display: block;
+   }
+}
+
+.popup-form {
+   display: flex;
+   flex-direction: column;
+   margin-top: calculateRem(24px);
+   padding: 0 calculateRem(24px);
+
+   @include mobile {
+      margin-top: 0;
+      padding: 0;
+   }
+
+   &__input, &__textarea {
+      border: none;
+      border-bottom: 2px solid $color-dark-opacity-6;
+      font-family: inherit;
+      padding: calculateRem(36px) 0 calculateRem(20px);
+      font-size: calculateRem(20px);
+      line-height: calculateRem(24px);
+      height: 82px;
+      width: 100%;
+
+      &::placeholder {
+         color: rgba(29, 40, 48, .6);
+      }
+
+      &:first-child {
+         padding-top: 0;
+      }
+
+      &-error {
+         display: none;
+      }
+
+      @include mobile {
+         height: 60px;
+         padding: calculateRem(24px) 0 calculateRem(16px);
+         font-size: calculateRem(14px);
+         line-height: calculateRem(18px);
+      }
+   }
+
+   label.error {
+      input {
+         border-color: rgba(130,23,23,1);
+      }
+
+      .popup-form__input-error {
+         display: block;
+         margin-top: calculateRem(2px);
+         display: block;
+         color: rgba(130,23,23,1);
+
+         @include mobile {
+            font-size: calculateRem(14px);
+         }
+      }
+   }
+
+   &__btn {
+      margin-top: calculateRem(48px);
+      border: none;
+      cursor: pointer;
+
+      @include mobile {
+         margin-top: calculateRem(32px);
+      }
+   }
+}
+
+.main-popup-form-overlay {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto;
+   background: rgba($color: $color-black, $alpha: .5);
+   z-index: 99;
+
+   &.open {
+      display: block;
+   }
+}

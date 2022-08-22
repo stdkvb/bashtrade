@@ -1,0 +1,99 @@
+@function rem($size) {
+   $remSize: $size / 16px;
+   @return #{$remSize}rem;
+}
+
+$black: rgba(0, 0, 0, 1);
+$black-opacity-86: rgba(0, 0, 0, 0.86);
+$black-opacity-80: rgba(0, 0, 0, 0.80);
+$black-opacity-5: rgba(23, 23, 23, 0.5);
+$black-20:#202020;
+$black-28-opacity-80:rgba(40, 40, 40, 0.8);
+$black-opacity-8:rgba(0, 0, 0, 0.8);
+$dark-opacity-80: rgba(16, 25, 32, 0.8);
+$dark: rgba(16, 25, 32, 1);
+$black-lighter-opacity-80: rgba(16, 25, 32, 0.8);
+$color-brown-light: rgba(125, 87, 14, 1);
+$color-brown: rgba(75, 38, 35, 1);
+
+$blue: #106cbc;
+$blue-lighter: #0f78c9;
+$blue-opacity-2: rgba(16, 108, 188, 0.2);
+$blue-opacity-7: rgba(16, 108, 188, 0.7);
+$blue-darker-opacity-04: rgba(16, 108, 188, 0.4);
+$blue-darker-opacity-02: rgba(16, 108, 188, 0.2);
+$blue-darker-opacity-80: rgba(16, 108, 188, 0.8);
+
+
+$yellow: #ffe600;
+$yellow-darker: #EFDE3D;
+$yellow-opacity-7:rgba(255, 230, 0, 0.7);
+
+$white: #fff;
+$white-opacity-70: rgba(255, 255, 255, 0.7);
+$sasha: #e9e9e9;
+$grey: #E0E0E0;
+$grey-darker: #929292;
+$grey-opacity-08:rgba(224, 224, 224, 0.08);
+$grey-opacity-70:rgba(137, 137, 137, 0.7);
+$grey108-opacity-80:rgba(108, 108, 108, 1);
+$grey108-opacity-50:rgba(108, 108, 108, 0.5);
+$grey108-opacity-30:rgba(108, 108, 108, 0.3);
+$grey108-opacity-70:rgba(108, 108, 108, 0.7);
+
+
+$akrobat: Akrobat, sans-serif;
+/* $Manrope: Manrope, sans-serif; */
+
+// colors
+$color_white: #fff;
+$white-opacity-80: rgba(255, 255, 255, 0.8);
+$white-opacity-60: rgba(255, 255, 255, 0.6);
+$white-opacity-50: rgba(255, 255, 255, 0.5);
+$white-opacity-20: rgba(255, 255, 255, 0.2);
+$color_black: #4a4949;
+$color_gold: #c29a5c;
+
+$silver-opacity-40: rgba(240, 240, 240, 0.5);
+
+
+$base_color_text: #4a4949;
+$color_bg: #f6f3f1;
+
+$font_regular: "sf_regular";
+$font_light: "sf_light";
+$font_italic: "sf_regular";
+$font_medium: "sf_medium";
+$font_bold: "sf_bold";
+$font_black: "sf_bold";
+$font_thin: "sf_light";
+
+// sizes
+$font_size: 16px;
+$line_height: 1.2;
+
+// old
+
+$image-path: "~@/assets/images/";
+$svg-path: "~@/assets/svg/";
+
+// Black white
+$color-white: #ffffff;
+$color-white-opacity-6: rgba(255, 255, 255, 0.6);
+$color-white-opacity-5: rgba(255, 255, 255, 0.5);
+
+// Black color
+$color-black: #000;
+$color-dark: #1d2830;
+$color-dark-opacity-6: rgba(29, 40, 48, 0.6);
+$color-dark-opacity-5: rgba(29, 40, 48, 0.5);
+
+// Blue
+$color-blue: #1f91fb;
+$color-blue-dark: #0475dc;
+$color-blue-light: #e5f2ff;
+$color-blue-gradient: linear-gradient(67.58deg, #0073de 8.3%, #319cff 98.91%);
+
+// Fonts
+$font-source-sans-pro: "Source Sans Pro";
+$font-bebas-neue-pro: "Bebas Neue Pro";

@@ -1,0 +1,14 @@
+.wrap {
+  padding-top: 80px;
+  padding-bottom: 40px;
+
+  @include tablet {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  @include mobile {
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+}

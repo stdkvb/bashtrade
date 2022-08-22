@@ -1,0 +1,49 @@
+$font-path: "../fonts/";
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: 700;
+  src: url($font-path + 'Ubuntu-Bold.ttf') format('truetype'),
+    url($font-path + 'Ubuntu-Bold.woff') format('woff'),
+    url($font-path + 'Ubuntu-Bold.woff2') format('woff2'),
+    url($font-path + 'Ubuntu-Bold.eot') format('opentype'),
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: 500;
+  src: url($font-path + 'Ubuntu-Medium.ttf') format('truetype'),
+    url($font-path + 'Ubuntu-Medium.woff') format('woff'),
+    url($font-path + 'Ubuntu-Medium.woff2') format('woff2'),
+    url($font-path + 'Ubuntu-Medium.eot') format('opentype'),
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: 400;
+  src: url($font-path + 'Montserrat-Regular.ttf') format('truetype'),
+    url($font-path + 'Montserrat-Regular.woff') format('woff'),
+    url($font-path + 'Montserrat-Regular.woff2') format('woff2'),
+    url($font-path + 'Montserrat-Regular.eot') format('opentype'),
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: 500;
+  src: url($font-path + 'Montserrat-Medium.ttf') format('truetype'),
+    url($font-path + 'Montserrat-Medium.woff') format('woff'),
+    url($font-path + 'Montserrat-Medium.woff2') format('woff2'),
+    url($font-path + 'Montserrat-Medium.eot') format('opentype'),
+}
+
+h1,
+h3 {
+  font-family: "Ubuntu";
+}
+
+p,
+input,
+textarea,
+li {
+  font-family: 'Montserrat' !important;
+}
