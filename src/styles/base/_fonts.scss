@@ -1,0 +1,91 @@
+@font-face {
+	font-family: Montserrat;
+	font-display: swap;
+	src: url("@fonts/Montserrat-Medium.woff2") format("woff2"), url("@fonts/Montserrat-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+@mixin FontFamilyMontserratMedium {
+	font-family: Montserrat, sans-serif;
+	font-weight: 500;
+	line-height: 140%;
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-display: swap;
+	src: url("@fonts/Montserrat-Regular.woff2") format("woff2"), url("@fonts/Montserrat-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@mixin FontFamilyMontserratRegular {
+	font-family: Montserrat, sans-serif;
+	font-weight: 400;
+	line-height: 140%;
+}
+
+@font-face {
+	font-family: Stolzl;
+	font-display: swap;
+	src: url("@fonts/Stolzl-Medium.woff2") format("woff2"), url("@fonts/Stolzl-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+@mixin FontFamilyStolzlMedium {
+	font-family: Stolzl, sans-serif;
+	font-weight: 500;
+	line-height: 140%;
+}
+
+@font-face {
+	font-family: Stolzl;
+	font-display: swap;
+	src: url("@fonts/Stolzl-Bold.woff2") format("woff2"), url("@fonts/Stolzl-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+@mixin FontFamilyStolzlBold {
+	font-family: Stolzl, sans-serif;
+	font-weight: 700;
+	line-height: 140%;
+}
+
+@font-face {
+	font-family: Stolzl;
+	font-display: swap;
+	src: url("@fonts/Stolzl-Regular.woff2") format("woff2"), url("@fonts/Stolzl-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@mixin FontFamilyStolzlRegular {
+	font-family: Stolzl, sans-serif;
+	font-weight: 400;
+	line-height: 140%;
+}
+
+@font-face {
+	font-family: Ubuntu;
+	font-display: swap;
+	src: url("@fonts/Ubuntu-Medium.woff2") format("woff2"), url("@fonts/Ubuntu-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+@mixin FontFamilyUbuntuMedium {
+	font-family: Ubuntu, sans-serif;
+	font-weight: 500;
+	line-height: 140%;
+}
+
+@font-face {
+	font-family: Ubuntu;
+	font-display: swap;
+	src: url("@fonts/Ubuntu-Bold.woff2") format("woff2"), url("@fonts/Ubuntu-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+@mixin FontFamilyUbuntuBold {
+	font-family: Ubuntu, sans-serif;
+	font-weight: 700;
+	line-height: 140%;
+}
+

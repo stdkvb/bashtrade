@@ -1,0 +1,181 @@
+header {
+    background: transparent;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		@include FontFamilyStolzlRegular;
+
+		.header-content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 104px;
+			column-gap: rem(20px);
+			padding: 0 60px;
+
+			@include tablet {
+				padding: 0;
+			}
+
+			& .logo {
+				max-width: rem(319px);
+				width: 100%;
+				@include mobile {
+					max-width: 200px;
+				}
+
+				img {
+					width: 100%;
+					&:first-of-type {
+						@include desktop {
+							display: none;
+						}
+					}
+					&:last-of-type {
+						@include min_desktop {
+							display: none;
+						}
+					}
+				}
+
+			}
+
+			& nav {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					max-width: rem(689px);
+					column-gap: rem(20px);
+					width: 100%;
+
+					& a {
+							font-style: normal;
+							font-weight: 400;
+							font-size: rem(24px);
+							line-height: 120%;
+							color: #141414;
+							@include FontFamilyStolzlRegular;
+
+							&:last-child {
+									font-style: normal;
+									font-weight: 500;
+									font-size: rem(24px);
+									border: rem(1px) solid #E10028;
+									cursor: pointer;
+									background: #fff;
+									line-height: 120%;
+									color: #E10028;
+									padding: rem(10px) rem(20px);
+									transition: all 0.3s ease-in-out;
+
+									&:hover {
+											color: #fff;
+											background: #E10028;
+									}
+						}
+					}
+					@include desktop_large {
+						display: none;
+					}
+				}
+
+				.burger {
+					background-image: url(@icons/burger-black.svg);
+					background-color: transparent;
+					border: none;
+					height: 32px;
+					width: 32px;
+					position: absolute;
+					z-index: 10;
+					top: 36px;
+					right: 30px;
+					&:hover {
+						cursor: pointer;
+					}
+					@include min_desktop_large {
+						display: none;
+					}
+				}
+		}
+
+		.menu {
+			height: 100vh;
+			width: 360px;
+			background-color: white;
+			position: fixed;
+			top: 0;
+			z-index: 10;
+			padding: 30px;
+			transition: transform 0.7s ease;
+			left: -360px;
+			@include tablet {
+				width: 100vw;
+				left: -100vw;
+			}
+
+			&.active {
+				transition: all 0.7s ease;
+				transform: translateX(360px);
+				@include tablet {
+					transform: translateX(100vw);
+				}
+			}
+
+			.close {
+				background-image: url(@icons/close.svg);
+				background-color: transparent;
+				border: none;
+				height: 32px;
+				width: 32px;
+				position: absolute;
+				z-index: 20;
+				top: 30px;
+				right: 30px;
+				&:hover {
+					cursor: pointer;
+				}
+				@include min_desktop_large {
+					display: none;
+				}
+			}
+
+			nav {
+				display: flex;
+				align-items: right;
+				flex-direction: column;
+				justify-content: space-between;
+				gap: 20px;
+				width: 100%;
+
+				& a {
+						font-style: normal;
+						font-weight: 400;
+						font-size: rem(24px);
+						line-height: 120%;
+						color: #141414;
+
+						&:last-child {
+								font-style: normal;
+								font-weight: 500;
+								font-size: rem(24px);
+								border: rem(1px) solid #E10028;
+								cursor: pointer;
+								background: #fff;
+								line-height: 120%;
+								color: #E10028;
+								padding: rem(10px) rem(20px);
+								transition: all 0.3s ease-in-out;
+								width: fit-content;
+
+								&:hover {
+										color: #fff;
+										background: #E10028;
+								}
+						}
+				}
+			}
+		}
+}
+
+
+

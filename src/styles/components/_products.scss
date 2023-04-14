@@ -1,0 +1,135 @@
+.products {
+	padding: 250px 60px 70px 60px;
+	background: #E9E9E9;
+	position: relative;
+	@include tablet {
+		padding: 200px 30px 30px 30px;
+	}
+	.container {
+		position: relative;
+	}
+	@include mobile {
+		padding-top: 150px;
+		.container {
+			padding: 0;
+		}
+	}
+
+	.products-red-block {
+		padding: rem(100px) rem(30px) rem(30px);
+		max-width: rem(550px);
+		width: 100%;
+		position: absolute;
+		top: -250px;
+		left: 0;
+		min-height: rem(191px);
+		display: flex;
+		align-items: end;
+
+		@include tablet {
+				top: -200px;
+				min-height: fit-content;
+		}
+		@include mobile {
+			top: -150px;
+			padding-top: 50px;
+			width: calc(100vw - 100px);
+		}
+
+		& span {
+				font-style: normal;
+				font-weight: 700;
+				font-size: rem(24px);
+				line-height: 120%;
+				text-transform: uppercase;
+				color: #FFFFFF;
+				display: block;
+				font-family: "Ubuntu";
+				width: 100%;
+		}
+	}
+
+	.products-cards {
+		.products-item {
+			max-width: 328px;
+		}
+		p {
+			font-style: normal;
+			font-weight: 700;
+			font-size: rem(32px);
+			line-height: 120%;
+			color: #141414;
+			@include mobile {
+				font-size: 28px;
+			}
+		}
+
+		span {
+				font-style: normal;
+				font-weight: 500;
+				font-size: rem(18px);
+				line-height: 120%;
+				color: rgba(20, 20, 20, 0.8);
+				font-family: 'Montserrat';
+		}
+
+		& ul {
+				& {
+						margin: rem(30px) 0 0;
+				}
+				& li {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						border-bottom: 1.21875px solid rgba(20, 20, 20, 0.4);
+						margin: 0 0 rem(21px);
+
+						&:last-child {
+								margin: 0;
+						}
+				}
+
+				& p {
+
+						& {
+								background: #E9E9E9;
+								margin: 0 0 rem(-2px);
+						}
+
+						&:first-child {
+								font-style: normal;
+								font-weight: 700;
+								font-size: rem(18px);
+								line-height: 120%;
+								color: #141414;
+								@include mobile {
+									font-size: 16px;
+								}
+						}
+
+						&:last-child {
+								font-style: normal;
+								font-weight: 500;
+								font-size: rem(18px);
+								line-height: 120%;
+								color: #141414;
+								@include mobile {
+									font-size: 16px;
+								}
+						}
+
+					}
+			}
+
+			& img {
+					width: 100%;
+					margin: rem(30px) 0 rem(24px);
+					@include mobile {
+						margin: 20px 0;
+					}
+			}
+		}
+}
+
+
+

@@ -1,0 +1,177 @@
+.about-us {
+	background: #E9E9E9;
+	overflow: hidden;
+	@include desktop_base {
+		padding-top: 0;
+		padding-bottom: 50px;
+	}
+
+	.container {
+		@include tablet {
+			padding: 0;
+		}
+	}
+	.about-us-content {
+		position: relative;
+		padding: 0 60px;
+		@include tablet {
+			padding: 0;
+		}
+
+		.about-us-img-block {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				.about-us-image {
+					position: absolute;
+					left: 196px;
+					transform: translate(0, -50%);
+					@include desktop_medium {
+						display: none;
+					}
+				}
+
+				.about-us-background {
+					width: 100%;
+
+					@include desktop_large {
+							min-height: rem(555px);
+					}
+
+					@include desktop_base {
+							width: auto;
+					}
+				}
+
+				.about-us-desc {
+					height: 521px;
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					justify-content: start;
+					max-width: rem(569px);
+					padding: 0 rem(30px);
+					align-content: center;
+					position: absolute;
+					right: 214px;
+					top: rem(-100px);
+					@include desktop_base {
+						top: 0;
+						right: 60px;
+					}
+					@include tablet {
+						right: 0;
+					}
+
+				}
+		}
+
+		.about-us-items {
+			display: grid;
+			grid-template-columns: 462px 1fr;
+			gap: 40px;
+			margin-top: 140px;
+			@include desktop_base {
+				display: flex;
+				flex-direction: column;
+				margin-top: 50px;
+				gap: 20px;
+			}
+			.about-us-item {
+				border: solid 1px #141414;
+				padding: 34px;
+				p {
+					font-style: normal;
+					font-weight: 400;
+					font-size: rem(24px);
+					line-height: 150%;
+					color: #141414;
+				}
+			}
+		}
+
+		.about-us-director {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			justify-content: center;
+			margin-top: 100px;
+			height: 622px;
+			@include desktop_base {
+				display: block;
+				height: unset;
+				margin-top: 20px;
+			}
+
+			.about-us-director-description {
+				border: solid 1px #141414;
+				padding: 0 34px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 30px;
+				background: #E9E9E9;
+
+				@include tablet {
+					padding: 34px;
+				}
+
+				h4 {
+					font-family: 'Ubuntu';
+					font-style: normal;
+					font-weight: 700;
+					font-size: 50px;
+					line-height: 120%;
+					color: #141414;
+					margin: 0;
+				}
+
+				h5 {
+					font-family: 'Ubuntu';
+					font-style: normal;
+					font-weight: 700;
+					font-size: 24px;
+					color: #141414;
+					text-transform: uppercase;
+					margin: 0;
+				}
+
+				ul {
+					padding-left: 20px;
+				}
+
+				li {
+					font-family: 'Stolzl';
+					font-weight: 400;
+					font-size: 24px;
+					line-height: 150%;
+					color: #141414;
+					@include FontFamilyMontserratRegular;
+				}
+			}
+			.about-us-director-photo {
+				border: solid 1px #141414;
+				border-right: none;
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				background: linear-gradient(115.8deg, #AAACAC 0%, #838384 100%);
+				overflow: hidden;
+				@include desktop_base {
+					border-right: solid 1px #141414;
+					border-bottom: none;
+				}
+				@include tablet {
+					img {
+						max-height: 600px;
+					}
+				}
+				@include mobile {
+					img {
+						max-height: 360px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+.idea
+dist
+node_modules
+.env
+gulp/version.json

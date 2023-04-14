@@ -1,127 +1,65 @@
-const gulp = require('gulp');
-const del = require('del');
-const concat = require('gulp-concat');
-const watch = require('gulp-watch');
-const scss = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
-const notify = require('gulp-notify');
-const plumber = require('gulp-plumber');
-const fileinclude = require('gulp-file-include');
-browserSync = require('browser-sync').create(),
-gulp.task('browser-sync', function() {
-  browserSync.init()
-});
+import gulp from 'gulp'
 
-// Таск для сборки HTML и шаблонов
-gulp.task('html', function (callback) {
-    return gulp.src('./src/pages/*.html')
-        .pipe(plumber({
-            errorHandler: notify.onError(function (err) {
-                return {
-                    title: 'HTML include',
-                    sound: false,
-                    message: err.message
-                }
-            })
-        }))
-        .pipe(fileinclude({
-            prefix: '@@'
-        }))
-        .pipe(gulp.dest('./build/'))
-    callback();
-});
+import {
+	cleanTask,
+	htmlTask,
+	devServerTask,
+	stylesTask,
+	scriptsTask,
+	utilsScriptsTask,
+	imagesTask,
+	iconsTask,
+	faviconsTask,
+	deleteTempFolderTask,
+	videosTask,
+	audioTask,
+	ftpDeployTask
+} from './gulp/tasks/index.js'
 
-// Таск для компиляции SCSS в CSS
-gulp.task('scss', function (callback) {
-    return gulp.src('./src/scss/**/*.scss')
-        .pipe(plumber({
-            errorHandler: notify.onError(function (err) {
-                return {
-                    title: 'Styles',
-                    sound: false,
-                    message: err.message
-                }
-            })
-        }))
-        .pipe(sourcemaps.init())
-        .pipe(scss())
-        .pipe(concat('style.css'))
-        .pipe(autoprefixer({
-            overrideBrowserslist: ['last 4 versions']
-        }))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./build/css/'))
-        .pipe(browserSync.stream())
-    callback();
-});
+import { oftToTtfTask, ttfToWoffTask, ttfToWoff2Task, generateFontsStyleTask } from './gulp/tasks/fonts/index.js'
 
-// Таск для копирование images
-gulp.task('copy:img', function (callback) {
-    return gulp.src('./src/img/**/*.*')
-        .pipe(gulp.dest('./build/img/'));
-    callback();
-});
+import { paths } from './gulp/config/index.js'
 
-// Таск для копирование libs
-gulp.task('copy:libs', function (callback) {
-    return gulp.src('./src/libs/**/*.*')
-        .pipe(gulp.dest('./build/libs/'));
-    callback();
-});
+const fontsSeries = gulp.series(
+	oftToTtfTask,
+	gulp.parallel(ttfToWoffTask, ttfToWoff2Task),
+	deleteTempFolderTask,
+	generateFontsStyleTask
+)
+const imagesTasks = gulp.parallel(imagesTask, iconsTask, faviconsTask)
+const mainTasks = gulp.parallel(
+	htmlTask,
+	gulp.series(fontsSeries, stylesTask),
+	scriptsTask,
+	utilsScriptsTask,
+	imagesTasks,
+	videosTask,
+	audioTask
+)
 
-// Таск для копирование fonts
-gulp.task('copy:fonts', function (callback) {
-    return gulp.src('./src/fonts/**/*.*')
-        .pipe(gulp.dest('./build/fonts/'));
-    callback();
-});
+const getWatcher = (task = () => Promise.resolve(true)) => () => {
+	gulp.watch(paths.watch.html, gulp.series(htmlTask, task))
+	gulp.watch(paths.watch.styles, gulp.series(stylesTask, task))
+	gulp.watch(paths.watch.scripts, gulp.series(scriptsTask, task))
+	gulp.watch(paths.watch.utilsScripts, gulp.series(utilsScriptsTask, task))
+	gulp.watch(paths.watch.images, gulp.series(imagesTasks, task))
+	gulp.watch(paths.watch.videos, gulp.series(videosTask, task))
+	gulp.watch(paths.watch.audio, gulp.series(audioTask, task))
+}
 
-// Таск для копирования upload
-gulp.task('copy:upload', function (callback) {
-    return gulp.src('./src/upload/**/*.*')
-        .pipe(gulp.dest('./build/upload/'));
-    callback();
-});
+const watcher = getWatcher()
+const ftpDeployWatcher = getWatcher(ftpDeployTask)
 
-// Таск для копирования js
-gulp.task('copy:js', function (callback) {
-    return gulp.src('./src/js/*.js')
-        .pipe(fileinclude({
-            prefix: '@@'
-        }))
-        .pipe(gulp.dest('./build/js'));
-    callback();
-});
+const buildSeries = gulp.series(cleanTask, mainTasks)
+const devServerOnWatchTasks = gulp.parallel(getWatcher(), devServerTask)
+const devServerSeries = gulp.series(buildSeries, devServerOnWatchTasks)
+const deploySeries = gulp.series(buildSeries, ftpDeployTask)
+const deployOnWatchSeries = gulp.series(deploySeries, getWatcher(ftpDeployTask))
 
-// // Таск для слежки за файлами
-gulp.task('watch', function () {
-    watch(['./build/*.html', './build/css/**/*.css' , './build/js/**/*.js'],  gulp.parallel(browserSync.reload));
-    watch('./src/scss/**/*.scss', gulp.parallel('scss'));
-    watch('./src/pages/**/*.html', gulp.parallel('html'));
-    watch('./src/img/**/*.*', gulp.parallel('copy:img'));
-    watch('./src/libs/**/*.*', gulp.parallel('copy:libs'));
-    watch('./src/fonts/**/*.*', gulp.parallel('copy:fonts'));
-    watch('./src/upload/**/*.*', gulp.parallel('copy:upload'));
-    watch('./src/js/**/*.*', gulp.parallel('copy:js'));
-});
-
-gulp.task('server', function () {
-    browserSync.init({
-        server: {
-            baseDir: "./build/"
-        }
-    })
-});
-
-gulp.task('clean:build', function() {
-    return del('./build')
-});
-
-gulp.task(
-    'default',
-    gulp.series(
-        gulp.parallel('clean:build'),
-        gulp.parallel('scss', 'html', 'copy:img', 'copy:libs', 'copy:fonts',  'copy:upload', 'copy:js'),
-        gulp.parallel('server', 'watch')
-    ));
+gulp.task('default', devServerSeries)
+gulp.task('build', buildSeries)
+gulp.task('generateFonts', fontsSeries)
+gulp.task('server', devServerOnWatchTasks)
+gulp.task('deploy', ftpDeployTask)
+gulp.task('deploy:build', deploySeries)
+gulp.task('deploy:watch', deployOnWatchSeries)

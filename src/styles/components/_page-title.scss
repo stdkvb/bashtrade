@@ -1,0 +1,52 @@
+.main-content {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+	height: 820px;
+
+	@include tablet {
+		height: unset;
+		padding: 120px 0;
+		gap: 0;
+	}
+
+	@include mobile {
+		padding: 100px 0 60px 0;
+	}
+
+	img {
+		@include desktop {
+			display: none;
+		}
+	}
+
+	.title {
+		max-width: 868px;
+		margin-right: 60px;
+		@include tablet {
+			margin: 0;
+		}
+		h1 {
+			font-style: normal;
+			font-weight: 800;
+			font-size: 80;
+			line-height: 110%;
+			color: #141414;
+			margin: 0 0 rem(30px);
+		}
+
+		p {
+				max-width: 723px;
+				font-style: normal;
+				font-weight: 400;
+				font-size: rem(24px);
+				line-height: 150%;
+				color: #141414;
+				@include FontFamilyMontserratRegular;
+		}
+	}
+}
+
+
+
+

@@ -1,0 +1,46 @@
+footer {
+	height: rem(184px);
+	background: #E9E9E9;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+
+
+	& .footer-content {
+			display: flex;
+			align-items: start;
+			justify-content: start;
+			column-gap: rem(30px);
+			padding: 0 60px;
+			@include tablet {
+				padding: 0;
+				flex-direction: column;
+				gap: 20px;
+				.logo {
+					img{
+						max-width: 300px;
+					}
+				}
+			}
+	}
+
+	& p,
+	& a {
+			font-family: 'Montserrat';
+			font-style: normal;
+			font-weight: 400;
+			font-size: rem(12px);
+			line-height: 120%;
+			color: #141414;
+	}
+
+	& .privacy-links {
+
+			& .policy-privacy {
+
+					padding: 0 rem(7px) 0 0;
+					border-right: rem(1px) solid;
+					margin: 0 rem(5px) 0 0;
+			}
+	}
+}

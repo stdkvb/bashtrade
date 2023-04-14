@@ -1,0 +1,119 @@
+.contact-block {
+	& {
+			max-width: rem(569px);
+			padding: 130px 30px 100px 30px;
+			position: absolute;
+			top: rem(-101px);
+			right: rem(154px);
+			height: 100%;
+			min-height: 880px;
+
+			@include tablet {
+					right: rem(15px);
+			}
+			@include mobile {
+				padding: 30px 20px;
+				min-height: unset;
+			}
+	}
+	@include desktop {
+		right: 60px;
+	}
+	@include desktop_base{
+		position: unset;
+	}
+
+	& span {
+			display: block;
+	}
+
+	& input {
+			font-style: normal;
+			font-weight: 500;
+			font-size: rem(18px);
+			line-height: 120%;
+			color: rgba(249, 249, 249, 0.8);
+
+			&::placeholder {
+					font-style: normal;
+					font-weight: 500;
+					font-size: rem(18px);
+					line-height: 120%;
+					color: rgba(249, 249, 249, 0.8);
+			}
+	}
+
+	& textarea {
+			font-style: normal;
+			font-weight: 500;
+			font-size: rem(18px);
+			line-height: 120%;
+			color: rgba(249, 249, 249, 0.8);
+			padding: rem(10px);
+			background: #E10028;
+			border: rem(1px) solid #FFFFFF;
+			width: 100%;
+
+			&::placeholder {
+					font-style: normal;
+					font-weight: 500;
+					font-size: rem(18px);
+					line-height: 120%;
+					color: rgba(249, 249, 249, 0.8);
+			}
+	}
+
+	& label {
+			width: 100%;
+			border: rem(1px) solid #FFFFFF;
+			height: rem(40px);
+			display: flex;
+			align-items: center;
+			justify-content: start;
+			padding: 0 rem(10px);
+	}
+
+	& form {
+			display: flex;
+			align-items: start;
+			flex-wrap: wrap;
+			row-gap: rem(30px);
+			margin: rem(30px) 0 0;
+	}
+
+	& button {
+			margin: rem(24px) 0 0;
+			font-style: normal;
+			font-weight: 500;
+			font-size: rem(24px);
+			line-height: 120%;
+			color: #E10028;
+			background: #fff;
+			border: rem(1px) solid #fff;
+			width: 100%;
+			height: rem(59px);
+			text-transform: capitalize;
+			font-family: "Ubuntu";
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+
+			&:hover {
+					background: #E10028;
+					color: #fff;
+			}
+	}
+
+	& p {
+			font-style: normal;
+			font-weight: 500;
+			font-size: rem(18px);
+			line-height: 120%;
+			color: rgba(249, 249, 249, 0.8);
+
+			& a {
+					color: rgba(249, 249, 249, 1);
+			}
+	}
+
+
+}
