@@ -3,18 +3,17 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 214px;
+	gap: 100px;
 	@include desktop_huge {
 		justify-content: center;
-		gap: 100px;
 		padding: 0;
 	}
-	@include desktop_large {
-		flex-direction: column-reverse;
+	@include desktop {
 		gap: 20px;
 	}
-	@include desktop {
+	@include tablet {
 			padding: 0;
-			flex-wrap: wrap;
+			flex-direction: column-reverse;
 			justify-content: center;
 	}
 
@@ -24,7 +23,7 @@
 
 		& {
 				max-width: rem(798px);
-				width: auto;
+				width: 100%;
 				display: flex;
 
 		}
@@ -47,9 +46,17 @@
 		flex-direction: column;
 		gap: 30px;
 		justify-content: center;
-
-		@include desktop {
+		p {
+			text-align: justify;
+		}
+		@include desktop_large {
 				margin-right: 0;
+				min-height: unset;
+				max-width: rem(397px);
+				padding: rem(80px) rem(30px);
+		}
+		@include tablet {
+			max-width: unset;
 		}
 		@include mobile {
 			padding-top: 30px;

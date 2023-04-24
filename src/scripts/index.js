@@ -18,5 +18,3 @@ new Swiper('.products-cards', {
 	slidesPerView: 'auto',
 	spaceBetween: 40,
 })
-
-

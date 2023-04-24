@@ -16,8 +16,12 @@
 				min-height: unset;
 			}
 	}
-	@include desktop {
+	@include desktop_small {
 		right: 60px;
+		max-width: calc(100vw - 500px)
+	}
+	@include tablet {
+		max-width: unset;
 	}
 	@include desktop_base{
 		position: unset;
@@ -93,7 +97,6 @@
 			width: 100%;
 			height: rem(59px);
 			text-transform: capitalize;
-			font-family: "Ubuntu";
 			cursor: pointer;
 			transition: all 0.3s ease-in-out;
 

@@ -40,7 +40,7 @@
 						right: 0;
 						left: unset;
 				}
-				@include desktop_small {
+				@include tablet {
 					position: unset;
 					display: flex;
 					max-width: unset;
@@ -69,14 +69,12 @@
 
 				& span {
 						display: block;
-						font-family: 'Ubuntu';
 						width: 100%;
 						font-style: normal;
 						font-weight: 500;
 						font-size: rem(24px);
 						line-height: 120%;
 						color: #141414;
-						@include FontFamilyMontserratRegular;
 				}
 
 				& p {
@@ -86,7 +84,6 @@
 						width: 80%;
 						line-height: 150%;
 						color: #141414;
-						@include FontFamilyMontserratRegular;
 				}
 		}
 	}

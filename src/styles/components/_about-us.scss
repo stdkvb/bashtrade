@@ -22,10 +22,16 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				overflow: hidden;
+
+				@include tablet {
+					overflow: visible;
+				}
 
 				.about-us-image {
 					position: absolute;
 					left: 196px;
+					max-width: 350px;
 					transform: translate(0, -50%);
 					@include desktop_medium {
 						display: none;
@@ -33,8 +39,6 @@
 				}
 
 				.about-us-background {
-					width: 100%;
-
 					@include desktop_large {
 							min-height: rem(555px);
 					}
@@ -56,12 +60,19 @@
 					position: absolute;
 					right: 214px;
 					top: rem(-100px);
+					p {
+						text-align: justify;
+					}
 					@include desktop_base {
 						top: 0;
-						right: 60px;
+						right: 80px;
 					}
 					@include tablet {
-						right: 0;
+						right: 15px;
+					}
+					@include mobile {
+						width: calc(100vw - 50px);
+						padding: 0 rem(15px);
 					}
 
 				}
@@ -69,24 +80,49 @@
 
 		.about-us-items {
 			display: grid;
-			grid-template-columns: 462px 1fr;
-			gap: 40px;
+			grid-template-columns: 1fr 0.5fr 0.5fr;
 			margin-top: 140px;
+			border-top: solid 1px #141414;
 			@include desktop_base {
 				display: flex;
 				flex-direction: column;
 				margin-top: 50px;
 				gap: 20px;
+				border: none;
+			}
+			picture {
+				padding-top: 20px;
+				padding-right: 20px;
+				img {
+					width: 100%;
+				}
+				@include tablet {
+					padding: 0;
+				}
 			}
 			.about-us-item {
-				border: solid 1px #141414;
-				padding: 34px;
+				border-left: solid 1px #141414;
+				padding: 20px;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				span {
+					color: red;
+					font-size: rem(24px);
+				}
+				h3 {
+					color: #141414;
+					font-size: 24px;
+					margin: 0;
+				}
 				p {
+					align-self: flex-end;
 					font-style: normal;
 					font-weight: 400;
-					font-size: rem(24px);
+					font-size: 18;
 					line-height: 150%;
 					color: #141414;
+					text-align: justify;
 				}
 			}
 		}
@@ -96,28 +132,27 @@
 			grid-template-columns: 1fr 1fr;
 			justify-content: center;
 			margin-top: 100px;
-			height: 622px;
+			height: 527px;
 			@include desktop_base {
-				display: block;
 				height: unset;
-				margin-top: 20px;
+			}
+			@include tablet {
+				display: block;
+				margin-top: 0;
 			}
 
 			.about-us-director-description {
-				border: solid 1px #141414;
 				padding: 0 34px;
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
 				gap: 30px;
 				background: #E9E9E9;
 
 				@include tablet {
-					padding: 34px;
+					padding: 34px 0;
 				}
 
 				h4 {
-					font-family: 'Ubuntu';
 					font-style: normal;
 					font-weight: 700;
 					font-size: 50px;
@@ -127,43 +162,49 @@
 				}
 
 				h5 {
-					font-family: 'Ubuntu';
 					font-style: normal;
 					font-weight: 700;
 					font-size: 24px;
 					color: #141414;
 					text-transform: uppercase;
 					margin: 0;
+					span {
+						color: red;
+						font-size: 24px;
+						margin-right: 15px;
+					}
 				}
 
 				ul {
 					padding-left: 20px;
+					max-width: 615px;
+					@include tablet {
+						max-width: unset;
+					}
 				}
 
 				li {
-					font-family: 'Stolzl';
 					font-weight: 400;
-					font-size: 24px;
-					line-height: 150%;
+					font-size: 18px;
+					line-height: 27px;
 					color: #141414;
-					@include FontFamilyMontserratRegular;
+					text-align: justify;
 				}
 			}
 			.about-us-director-photo {
-				border: solid 1px #141414;
-				border-right: none;
 				display: flex;
 				align-items: flex-end;
 				justify-content: center;
-				background: linear-gradient(115.8deg, #AAACAC 0%, #838384 100%);
 				overflow: hidden;
-				@include desktop_base {
-					border-right: solid 1px #141414;
-					border-bottom: none;
-				}
-				@include tablet {
+				background-color: white;
+				border-radius: 10px;
+				picture {
+					max-width: 445px;
+					max-height: 500px;
 					img {
-						max-height: 600px;
+						@include min_mobile {
+							width: 100%;
+						}
 					}
 				}
 				@include mobile {

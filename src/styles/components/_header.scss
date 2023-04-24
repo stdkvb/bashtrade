@@ -27,12 +27,12 @@ header {
 				img {
 					width: 100%;
 					&:first-of-type {
-						@include desktop {
+						@include desktop_base {
 							display: none;
 						}
 					}
 					&:last-of-type {
-						@include min_desktop {
+						@include min_desktop_base {
 							display: none;
 						}
 					}
@@ -74,7 +74,7 @@ header {
 									}
 						}
 					}
-					@include desktop_large {
+					@include desktop_small {
 						display: none;
 					}
 				}
@@ -92,7 +92,7 @@ header {
 					&:hover {
 						cursor: pointer;
 					}
-					@include min_desktop_large {
+					@include min_desktop_small {
 						display: none;
 					}
 				}
@@ -105,7 +105,7 @@ header {
 			position: fixed;
 			top: 0;
 			z-index: 10;
-			padding: 30px;
+			padding: 50px;
 			transition: transform 0.7s ease;
 			left: -360px;
 			@include tablet {
@@ -129,7 +129,7 @@ header {
 				width: 32px;
 				position: absolute;
 				z-index: 20;
-				top: 30px;
+				top: 50px;
 				right: 30px;
 				&:hover {
 					cursor: pointer;
@@ -144,20 +144,21 @@ header {
 				align-items: right;
 				flex-direction: column;
 				justify-content: space-between;
-				gap: 20px;
+				gap: 30px;
 				width: 100%;
 
 				& a {
 						font-style: normal;
 						font-weight: 400;
-						font-size: rem(24px);
+						font-size: rem(32px);
 						line-height: 120%;
 						color: #141414;
+						width: fit-content;
 
 						&:last-child {
 								font-style: normal;
 								font-weight: 500;
-								font-size: rem(24px);
+								font-size: rem(32px);
 								border: rem(1px) solid #E10028;
 								cursor: pointer;
 								background: #fff;
